@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#"></a>
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"><a  routerLink="/home" class="nav-link">Home</a></li>
+      <li class="nav-item active"><a routerLink="/logout" class="nav-link">LogOut</a></li>
+    </ul>
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+</nav><br><br>
+<h1>ORDERS</h1><br>
+<div class="row">
+  <ng-container *ngFor = "let order of orders;index as i">
+    <div class="card shadow p-3 mb-5 bg-white rounded ml-5">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <p class="card-title"><b>{{order}}</b></p>
+            <p class="card-title"><b>Order By:</b> {{order.orderBy}}</p>
+            <p class="card-text"><b>Status:</b> {{order.orderStatus}}</p>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-secondary" (click)="approve(order.orderId)">Approve</button>
+          </div>
+        </div>
+        <br>
+        <h5>Order Details</h5>
+        <div class="row">
+          <div class="col" >
+            <p class="card-title"> {{order}}</p>
+            <p class="card-text"> Product : {{order}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

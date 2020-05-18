@@ -1,0 +1,54 @@
+.myproduct {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(205, 210, 212);
+  }
+  .card-text{
+    height: 50px;
+    overflow: hidden;
+  }
+  
+  
+.navbar {
+  min-height: 80px;
+  font-size: 20px;
+  font-family: 'Verdana';
+}
+.topnav-right {
+  float: right;
+}
+
+h1{
+  text-align: center;
+}
+  .log {
+    text-align: right;
+  }
+  body{
+    background: #eee;
+  }
+  span{
+    font-size:15px;
+  }
+  a{
+  text-decoration:none; 
+  color: #0062cc;
+  border-bottom:2px solid #0062cc;
+  }
+  .box{
+    padding:60px 0px;
+  }
+  
+  .box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:60px 10px;
+    margin:30px 0px;
+  }
+  .text{
+    margin:20px 0px;
+  }
+  
+  .fa{
+     color:#4183D7;
+  }
