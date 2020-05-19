@@ -1,5 +1,8 @@
 package com.cg.dao;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +23,8 @@ public class MerchantDaoImpl implements MerchantDaoInterface{
 	ProductRepository productRepository;
 	
 	@Override
-	public boolean addProduct(Product product) {
-		MerchantDetails merchant1 = merchantRepository.getOne(1);
+	public boolean addProduct(Product product, int merchantId) {
+		MerchantDetails merchant1 = merchantRepository.getOne(merchantId);
 		Set<Product> set = merchant1.getProducts();
 		
 		product.setProductImage("F:\\Angular\\Angular6-SampleProject\\CapStoreMerchantAngular\\src\\assets\\images\\product.jpg");
@@ -36,18 +39,48 @@ public class MerchantDaoImpl implements MerchantDaoInterface{
 	}
 
 	@Override
-	public Set<Product> viewProducts(int merchantId) {
+	public Set<Product> viewProducts(int merchantId, String category) {
 		MerchantDetails merchant = merchantRepository.findById(merchantId).get();
-		return merchant.getProducts();
+		Set<Product> prod = merchant.getProducts();
+		Set<Product> products = new HashSet<>();
+		for (Product product : prod) {
+			if(product.getProductCategory().equalsIgnoreCase(category))
+				products.add(product);
+		}
+		System.out.println(products);
+
+		return products;
 	}
 
 	@Override
 	public Product getProduct(int productId) {
-		System.out.println(productId);
-		System.out.println("HELLOOOOOOOOOOOOOOOOOOOOOOO");
-		Product product = productRepository.findById(productId).get();
-		System.out.println(product);
-		return product;
+		return productRepository.findById(productId).get();
+	}
+	
+	@Override
+	public List<String> getCategories(int merchantId) {
+		MerchantDetails merchant = merchantRepository.findById(merchantId).get();
+		Set<Product> set = merchant.getProducts();
+		List<String> categories = new ArrayList<>();
+		for (Product product : set) {
+			String cat = product.getProductCategory();
+			if(!categories.contains(cat))
+				categories.add(cat);
+		}
+		return categories;
+		
 	}
 
+	@Override
+	public boolean delProduct(int merchantId, String category) {
+		MerchantDetails merchant = merchantRepository.findById(merchantId).get();
+		Set<Product> products = merchant.getProducts();
+		for (Product product : products) {
+			if(product.getProductCategory().equals(category))
+				productRepository.delete(product);
+		}
+		return true;
+	}
+
+	
 }

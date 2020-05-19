@@ -1,5 +1,6 @@
 package com.cg.controller;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +23,28 @@ public class MerchantController {
 	@Autowired
 	MerchantServiceInterface merchantServiceInterface;
 	
-	@PostMapping(value = "/add")
-	public boolean add(@RequestBody Product product) {
-		return merchantServiceInterface.addProduct(product);
+	@PostMapping(value = "/add/{merchant_id}")
+	public boolean add(@RequestBody Product product, @PathVariable("merchant_id")int merchantId) {
+		return merchantServiceInterface.addProduct(product,merchantId);
 	}
 	
-	@GetMapping(value = "/view/{merchant_id}")
-	public Set<Product> view(@PathVariable("merchant_id")int merchantId) {
-		return merchantServiceInterface.viewProducts(merchantId);
+	@GetMapping(value = "/view/{merchant_id}/{category}")
+	public Set<Product> view(@PathVariable("merchant_id")int merchantId, @PathVariable("category")String category) {
+		return merchantServiceInterface.viewProducts(merchantId,category);
 	}
 	
 	@GetMapping(value = "/singleProduct/{product_id}")
 	public Product getProduct(@PathVariable("product_id")int productId) {
 		return merchantServiceInterface.getProduct(productId);
 	}
-
+	
+	@GetMapping(value = "/getCategories/{merchant_id}")
+	public List<String> getCategories(@PathVariable("merchant_id")int merchantId) {
+		return merchantServiceInterface.getCategories(merchantId);
+	}
+	
+	@GetMapping(value = "/delCategory/{merchant_id}/{category}")
+	public boolean delCategory(@PathVariable("merchant_id")int merchantId, @PathVariable("category")String category) {
+		return merchantServiceInterface.delProduct(merchantId, category);
+	}
 }

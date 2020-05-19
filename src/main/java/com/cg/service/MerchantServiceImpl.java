@@ -1,5 +1,6 @@
 package com.cg.service;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +16,14 @@ public class MerchantServiceImpl implements MerchantServiceInterface{
 	MerchantDaoInterface merchantDao;
 	
 	@Override
-	public boolean addProduct(Product product) {
-		return merchantDao.addProduct(product);
+	public boolean addProduct(Product product, int merchantId) {
+		return merchantDao.addProduct(product, merchantId);
 		
 	}
 
 	@Override
-	public Set<Product> viewProducts(int merchantId) {
-		return merchantDao.viewProducts(merchantId);
+	public Set<Product> viewProducts(int merchantId, String category) {
+		return merchantDao.viewProducts(merchantId, category);
 		
 	}
 
@@ -30,5 +31,17 @@ public class MerchantServiceImpl implements MerchantServiceInterface{
 	public Product getProduct(int productId) {
 		return merchantDao.getProduct(productId);
 	}
+
+	@Override
+	public List<String> getCategories(int merchantId) {
+		return merchantDao.getCategories(merchantId);
+	}
+
+	@Override
+	public boolean delProduct(int merchantId, String category) {
+		return merchantDao.delProduct(merchantId, category);
+	}
+
+	
 
 }
