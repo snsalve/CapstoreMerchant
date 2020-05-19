@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
   login(){
     sessionStorage.setItem('merchant', this.merchantId);
-    this.router.navigate(['/header_page/products_page']);
+    this.router.navigate(['/header_page/profile_page']);
   }
 
 }

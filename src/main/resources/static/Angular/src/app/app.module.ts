@@ -13,8 +13,10 @@ import  { HeaderComponent } from './Components/Merchant/header/header.component'
 import { LoginComponent } from './Components/Merchant/login/login.component';
 import {LogoutComponent } from './Components/Merchant/logout/logout.component';
 import { RouterModule } from '@angular/router';
-import { routes } from './app-routing.module';
-
+import { routes } from './app-routing.module';;
+import { AddCategoryComponent } from './Components/Merchant/add-category/add-category.component'
+;
+import { RemoveCategoryComponent } from './Components/Merchant/remove-category/remove-category.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -33,8 +35,9 @@ import { routes } from './app-routing.module';
         ProductDetailsComponent,
         HeaderComponent,
         LoginComponent,
-        LogoutComponent
-		],
+        LogoutComponent,
+        AddCategoryComponent,
+        RemoveCategoryComponent	],
     providers: [ ],
     bootstrap: [AppComponent]
 })

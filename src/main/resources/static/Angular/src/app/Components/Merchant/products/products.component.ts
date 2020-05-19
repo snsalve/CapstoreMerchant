@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserDomAdapter } from '@angular/platform-browser/src/browser/browser_adapter';
 import { Product } from 'src/app/Models/product';
-import { FormBuilder } from '@angular/forms';
 import { MerchantService } from 'src/app/Service/merchant.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -11,12 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
- 
-  product:Product[];
-  constructor(private formBuilder: FormBuilder, private merchantService: MerchantService, private router: Router) { }
-
+  product:Product[] = [];
+  category:string;
+  id=sessionStorage.getItem('merchant');
+  constructor(private activatedRoute: ActivatedRoute, private merchantService: MerchantService) { }
+  
   ngOnInit() {
-    this.merchantService.viewProduct(1).subscribe( data => {this.product=data} );
+    this.activatedRoute.paramMap.subscribe(params => { 
+      this.category = params.get('category'); 
+      console.log(this.category);
+      this.merchantService.viewProduct(parseInt(this.id), this.category).subscribe(data => this.product=data);
+         
+  });
+   
   }
 
 }

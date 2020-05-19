@@ -26,7 +26,8 @@ export class AddProductComponent implements OnInit {
       noOfProducts: ['', [Validators.required]],
       productPrice: ['',[Validators.required, Validators.pattern("[1-9][0-9]{1,6}")]],
       productRating: ['',[Validators.required, Validators.pattern("[1-5]{1}")]],
-      productImage: ['', [Validators.required]]
+      productImage: ['', [Validators.required]],
+      discount: ['',[Validators.required, Validators.max(100)]],
     });
   }
 
@@ -46,10 +47,10 @@ export class AddProductComponent implements OnInit {
     if (this.addForm.invalid) {
       return; 
     }
-
-    this.merchantService.addProduct(this.addForm.value).subscribe(data => {
+    let id=sessionStorage.getItem('merchant');
+    this.merchantService.addProduct(this.addForm.value, id).subscribe(data => {
         if(data){
-        alert(`${this.addForm.controls.productName.value} Added Successfully`);
+        alert(`Product ${this.addForm.controls.productName.value} Added Successfully`);
         this.router.navigate(['/header_page/products_page']);
         }
     },err => {

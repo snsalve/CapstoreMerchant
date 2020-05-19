@@ -1,0 +1,159 @@
+<h1 style="text-align: center; color: maroon;">Add Product</h1><br>
+
+<div style="background-color: darkkhaki;">
+<div class="container" style=" background-color:maroon;">
+        <form [formGroup]="addForm" class="form-horizontal shadow p-3 mb-5 bg-light rounded " (ngSubmit) = "add()">
+                <div class="row">
+                        <div class="col-6">
+                                <div class="form-group row">
+                                  <label for="productCategory" class="required col-lg-3 text-right font-weight-bold">
+                                          Category :
+                                  </label>
+                                  <div class="col-lg-9">
+                                  <input type="text" class="form-control" placeholder="Enter New Category" formControlName="productCategory">
+                                  <div *ngIf="submitted && addForm.controls.productCategory.errors">
+                                          <div class="text-danger" *ngIf="addForm.controls.productCategory.errors.required">
+                                              Product Category is required..!
+                                          </div>                                
+                                  </div>
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                        <label for="productName" class="required col-lg-3 text-right font-weight-bold">
+                                                Name :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <input type="text" class="form-control" placeholder="Product Name" formControlName="productName">
+                                        <div *ngIf="submitted && addForm.controls.productName.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.productName.errors.required">
+                                                    Product Name is required..!
+                                                </div>                                
+                                        </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="productBrand" class="required col-lg-3 text-right font-weight-bold">
+                                                Brand :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <input type="text" class="form-control" placeholder="Product Brand" formControlName="productBrand">
+                                        <div *ngIf="submitted && addForm.controls.productBrand.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.productBrand.errors.required">
+                                                    Product Brand is required..!
+                                                </div>                                
+                                        </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="productInfo" class="required col-lg-3 text-right font-weight-bold">
+                                                Information :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <textarea type="text" class="form-control" placeholder="Description" formControlName="productInfo"></textarea>
+                                        <div *ngIf="submitted && addForm.controls.productInfo.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.productInfo.errors.required">
+                                                    Product Description is required..!
+                                                </div>                                
+                                        </div> 
+                                        </div>   
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="noOfProducts" class="required col-lg-3 text-right font-weight-bold">
+                                                Quantity :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <input type="text" class="form-control" placeholder="Quantity" formControlName="noOfProducts">
+                                        <div *ngIf="submitted && addForm.controls.noOfProducts.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.noOfProducts.errors.required">
+                                                    Product Quantity is required..!
+                                                </div>                                
+                                        </div> 
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="productPrice" class="required col-lg-3 text-right font-weight-bold">
+                                                Price :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <input type="text" class="form-control" placeholder="Price" formControlName="productPrice">
+                                        <div *ngIf="submitted && addForm.controls.productPrice.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.productPrice.errors.required">
+                                                    Product Price is required..!
+                                                </div>  
+                                                <div class="text-danger" *ngIf="addForm.controls.productPrice.errors.pattern">
+                                                        Product Price should be numeric and should not start with 0.
+                                                </div>                              
+                                        </div>
+                                        </div> 
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="productRating" class="required col-lg-3 text-right font-weight-bold">
+                                                Rating :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <input type="text" class="form-control" placeholder="Rating(1 to 5)" formControlName="productRating">
+                                        <div *ngIf="submitted && addForm.controls.productRating.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.productRating.errors.required">
+                                                    Product Rating is required..!
+                                                </div> 
+                                                <div class="text-danger" *ngIf="addForm.controls.productRating.errors.pattern">
+                                                        Product Rating should be between 1 to 5.
+                                                </div>                                
+                                        </div> 
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="discount" class="required col-lg-3 text-right font-weight-bold">
+                                                Discount :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <input type="text" class="form-control" placeholder="Discount(0 to 100%)" formControlName="discount">
+                                        <div *ngIf="submitted && addForm.controls.discount.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.discount.errors.required">
+                                                    Product Rating is required..!
+                                                </div> 
+                                                <div class="text-danger" *ngIf="addForm.controls.discount.errors.max">
+                                                        Discount should be between 0 to 100.
+                                                </div>                                
+                                        </div> 
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="productImage" class="required col-lg-3 text-right font-weight-bold">
+                                                Image :
+                                        </label>
+                                        <div class="col-lg-9">
+                                        <input type="file" class="form-control" placeholder="Product Picture" 
+                                                accept="image/*" formControlName="productImage"
+                                                (change)="handleFileInput($event.target.files)">
+                                        <div *ngIf="submitted && addForm.controls.productImage.errors">
+                                                <div class="text-danger" *ngIf="addForm.controls.productImage.errors.required">
+                                                    Product Image is required..!
+                                                </div>  
+                                        </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-6">
+                                <h4 class="text-center">Image preview</h4>
+                                <img [src]="imageUrl" style="width: 400px; height:300px; padding-top: 30px;" class="offset-lg-2 img-fluid">
+
+                        </div>
+                        
+                </div>
+                <div class="row">
+                        <div class="col-6">
+                                <button class="btn btn-outline-success" type="submit"><b>Add Product</b></button>
+                        </div>
+                </div>
+        </form>
+</div>
+</div>
+

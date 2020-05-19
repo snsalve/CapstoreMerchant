@@ -7,6 +7,8 @@ import { ProductDetailsComponent } from './Components/Merchant/product_details/p
 import  { HeaderComponent } from './Components/Merchant/header/header.component';
 import { LoginComponent } from './Components/Merchant/login/login.component';
 import {LogoutComponent } from './Components/Merchant/logout/logout.component';
+import { AddCategoryComponent } from './Components/Merchant/add-category/add-category.component';
+import { RemoveCategoryComponent } from './Components/Merchant/remove-category/remove-category.component';
 
 
 export const routes: Routes = [
@@ -14,7 +16,9 @@ export const routes: Routes = [
     { path: 'header_page', component: HeaderComponent ,
       children: [
           { path: 'addProduct_page', component: AddProductComponent },
-          { path: 'products_page', component: ProductsComponent },
+          { path: 'products_page/:category', component: ProductsComponent },
+          { path: 'add_product_with_category', component: AddCategoryComponent },
+          { path: 'remove_category', component: RemoveCategoryComponent },
           { path: 'profile_page', component: ProfileComponent },
           { path: 'productDetails_page/:id', component: ProductDetailsComponent},
           { path: 'logout_page', component: LogoutComponent } 
@@ -28,6 +32,6 @@ export const routes: Routes = [
     exports: [RouterModule]
   })
   export class AppRoutingModule { }
-  export const routingComponents=[AddProductComponent,ProductsComponent,ProfileComponent,
-    ProductDetailsComponent, HeaderComponent, LoginComponent, LogoutComponent]
+  export const routingComponents=[AddProductComponent,ProductsComponent,AddCategoryComponent, ProfileComponent,
+    ProductDetailsComponent, RemoveCategoryComponent, HeaderComponent, LoginComponent, LogoutComponent]
   

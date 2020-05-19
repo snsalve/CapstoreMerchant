@@ -1,7 +1,8 @@
 
-<h1>FURNITURE</h1><br>
-<hr>
-<button class="mybtn btn btn-secondary" routerLink="/header_page/addProduct_page" style="margin-left: 30px; margin-top: 10px; margin-bottom: 20px">Click to Add new Product</button>
+<h1 class="text-center" >{{prod.productCategory}}</h1><br><hr>
+<div class="text-center">
+      <button class="mybtn btn btn-secondary" routerLink="/header_page/addProduct_page" style="margin-left: 30px; margin-top: 10px; margin-bottom: 20px">Click to Add new Product</button>
+      </div>
 <div class="row">
   <ng-container *ngFor = "let prod of product;index as i">
     <div class="card shadow p-3 mb-5 bg-white rounded ml-5">

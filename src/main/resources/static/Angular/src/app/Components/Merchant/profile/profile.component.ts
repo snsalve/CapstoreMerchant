@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BrowserDomAdapter } from '@angular/platform-browser/src/browser/browser_adapter';
 import { ProductsComponent } from 'src/app/Components/Merchant/products/products.component';
 import { Router } from '@angular/router';
+import { MerchantService } from 'src/app/Service/merchant.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,20 +10,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  show=true;
+ 
+  // orders=[
+  //   "Grocery","Clothing","Books","Electronics"
+  // ]
+  
+  categories:string[];
 
-  constructor(private router: Router) {
-    
-   }
+  constructor(private merchantService: MerchantService) {}
 
   ngOnInit() {
-    
+    let id=sessionStorage.getItem('merchant');
+    this.merchantService.getCategory(parseInt(id)).subscribe( data => this.categories=data);
   }
-  display(){
-    this.show = false;
-    this.router.navigate(['/products_page']);
-
-    
-  }
+  
 
 }

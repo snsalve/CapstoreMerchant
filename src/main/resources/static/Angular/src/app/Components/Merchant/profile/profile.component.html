@@ -1,2 +1,55 @@
 
-            
+            <div class="container-fluid">
+                <div class="row content">
+                  <div class="col-sm-3">
+                    <div class="sidebar">
+                      <div class="user-profile">
+                        <div class="display-avatar animated-avatar">
+                          <img class="profile-img img-lg rounded-circle" src="" alt="profile image">
+                        </div>
+                        <div class="info-wrapper">
+                          <h6>Merchant Name</h6>
+                          <h6>Contact details:</h6>
+                          <h6>Products:</h6>
+                        </div>
+                        <br><br>
+                        <div class="sidenav">
+                          <a routerLink="/header_page/orders_page">View Orders</a>
+                          <a href=" ">Manage Feedback</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                   
+                    <div class="offset-sm-2">
+                        <h1 class="offset-sm-2">Categories</h1><br>
+                    <button class="btn btn-outline-success" style="margin-left: 30px; margin-top: 10px; margin-bottom: 20px" routerLink="/header_page/add_product_with_category"><b>Add New Category With Product</b></button>
+                    <button class="btn btn-outline-danger" style="margin-left: 30px; margin-top: 10px; margin-bottom: 20px" routerLink="/header_page/remove_category"><b>Remove Category</b></button>
+                    </div>
+                    <div class="row">
+                      <ng-container *ngFor = "let cat of categories;index as i">
+                        <div class="card shadow p-3 mb-5 bg-white rounded ml-5">
+                          <div class="card booking-card">
+                            <!-- Card image -->
+                            <div class="view overlay">
+                              <a [routerLink]="['/header_page/products_page', cat]"><img class="card-img-top" src="" alt="Card image cap"></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-body">
+                            <!-- Title -->
+                              <h4 class="card-title font-weight-bold">{{cat}}</h4>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Card -->
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+              
+              
+              
