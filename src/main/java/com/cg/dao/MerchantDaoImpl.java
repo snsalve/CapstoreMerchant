@@ -27,7 +27,7 @@ public class MerchantDaoImpl implements MerchantDaoInterface{
 		MerchantDetails merchant1 = merchantRepository.getOne(merchantId);
 		Set<Product> set = merchant1.getProducts();
 		
-		product.setProductImage("F:\\Angular\\Angular6-SampleProject\\CapStoreMerchantAngular\\src\\assets\\images\\product.jpg");
+		//product.setProductImage("F:\\Angular\\Angular6-SampleProject\\CapStoreMerchantAngular\\src\\assets\\images\\product.jpg");
 		product.setProductActivated(true);
 		product.setStatus(true);
 		
@@ -80,6 +80,11 @@ public class MerchantDaoImpl implements MerchantDaoInterface{
 				productRepository.delete(product);
 		}
 		return true;
+	}
+
+	@Override
+	public MerchantDetails getMerchant(int merchantId) {
+		return merchantRepository.findById(merchantId).get();
 	}
 
 	

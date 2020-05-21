@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.cg.entity.MerchantDetails;
 import com.cg.entity.Product;
 
 @Service
@@ -14,4 +15,5 @@ public interface MerchantServiceInterface {
 	public Product getProduct(int productId);
 	public List<String> getCategories(int merchantId);
 	public boolean delProduct(int merchantId, String category);
+	public MerchantDetails getMerchant(int merchantId);
 }

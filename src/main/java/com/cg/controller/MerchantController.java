@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.entity.MerchantDetails;
 import com.cg.entity.Product;
 import com.cg.service.MerchantServiceInterface;
 
@@ -46,5 +47,10 @@ public class MerchantController {
 	@GetMapping(value = "/delCategory/{merchant_id}/{category}")
 	public boolean delCategory(@PathVariable("merchant_id")int merchantId, @PathVariable("category")String category) {
 		return merchantServiceInterface.delProduct(merchantId, category);
+	}
+	
+	@GetMapping(value = "/getMerchant/{merchant_id}")
+	public MerchantDetails getMerchant(@PathVariable("merchant_id")int merchantId) {
+		return merchantServiceInterface.getMerchant(merchantId);
 	}
 }

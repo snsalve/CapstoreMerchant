@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.dao.MerchantDaoInterface;
+import com.cg.entity.MerchantDetails;
 import com.cg.entity.Product;
 
 @Service
@@ -40,6 +41,11 @@ public class MerchantServiceImpl implements MerchantServiceInterface{
 	@Override
 	public boolean delProduct(int merchantId, String category) {
 		return merchantDao.delProduct(merchantId, category);
+	}
+
+	@Override
+	public MerchantDetails getMerchant(int merchantId) {
+		return merchantDao.getMerchant(merchantId);
 	}
 
 	
