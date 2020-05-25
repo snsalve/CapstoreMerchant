@@ -29,4 +29,8 @@ export class MerchantService {
   public delCategory(id:number, category:string): Observable<any>{
     return this.httpClient.get<any>(`http://localhost:8080/merchant/delCategory/${id}/${category}`);
   }
+
+  public getMerchant(id:number): Observable<any>{
+    return this.httpClient.get<any>(`http://localhost:8080/merchant/getMerchant/${id}`);
+  }
 }

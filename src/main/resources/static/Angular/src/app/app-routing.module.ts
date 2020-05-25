@@ -9,6 +9,7 @@ import { LoginComponent } from './Components/Merchant/login/login.component';
 import {LogoutComponent } from './Components/Merchant/logout/logout.component';
 import { AddCategoryComponent } from './Components/Merchant/add-category/add-category.component';
 import { RemoveCategoryComponent } from './Components/Merchant/remove-category/remove-category.component';
+import { MerchantProfileComponent } from './Components/Merchant/merchant-profile/merchant-profile.component';
 
 
 export const routes: Routes = [
@@ -21,6 +22,7 @@ export const routes: Routes = [
           { path: 'remove_category', component: RemoveCategoryComponent },
           { path: 'profile_page', component: ProfileComponent },
           { path: 'productDetails_page/:id', component: ProductDetailsComponent},
+          { path: 'merchant_profile', component: MerchantProfileComponent},
           { path: 'logout_page', component: LogoutComponent } 
         ]
     }
@@ -32,6 +34,7 @@ export const routes: Routes = [
     exports: [RouterModule]
   })
   export class AppRoutingModule { }
-  export const routingComponents=[AddProductComponent,ProductsComponent,AddCategoryComponent, ProfileComponent,
-    ProductDetailsComponent, RemoveCategoryComponent, HeaderComponent, LoginComponent, LogoutComponent]
+  export const routingComponents=[AddProductComponent,ProductsComponent,AddCategoryComponent,
+     ProfileComponent, ProductDetailsComponent, RemoveCategoryComponent,
+      MerchantProfileComponent, HeaderComponent, LoginComponent, LogoutComponent]
   

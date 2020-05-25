@@ -1,10 +1,12 @@
 package com.cg.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cg.dao.MerchantDaoInterface;
 import com.cg.entity.MerchantDetails;

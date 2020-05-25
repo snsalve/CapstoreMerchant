@@ -14,9 +14,9 @@ import { LoginComponent } from './Components/Merchant/login/login.component';
 import {LogoutComponent } from './Components/Merchant/logout/logout.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';;
-import { AddCategoryComponent } from './Components/Merchant/add-category/add-category.component'
-;
-import { RemoveCategoryComponent } from './Components/Merchant/remove-category/remove-category.component'
+import { AddCategoryComponent } from './Components/Merchant/add-category/add-category.component';
+import { RemoveCategoryComponent } from './Components/Merchant/remove-category/remove-category.component';
+import { MerchantProfileComponent } from './Components/Merchant/merchant-profile/merchant-profile.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -37,7 +37,8 @@ import { RemoveCategoryComponent } from './Components/Merchant/remove-category/r
         LoginComponent,
         LogoutComponent,
         AddCategoryComponent,
-        RemoveCategoryComponent	],
+        RemoveCategoryComponent	,
+        MerchantProfileComponent],
     providers: [ ],
     bootstrap: [AppComponent]
 })

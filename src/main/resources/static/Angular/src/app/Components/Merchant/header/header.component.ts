@@ -10,6 +10,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
     
+  message="Sent From Parent";
+  result="";
+
+  showMenu(menu){
+      menu.style.display="block";  
+    }
+    closeMenu(menu){
+      menu.style.display="none";
+    }
 
   constructor(private router: Router) { }
 

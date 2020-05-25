@@ -1,0 +1,38 @@
+
+<body style="background-color: aliceblue">  
+  <h1 style="text-align: center; font-style: italic; padding: 20px;">Welcome to your Profile, {{merchant.name}}</h1>     
+      
+      <div class="card container-fluid border background-color:#1e1438;" style="min-height: 520px; width: 1110px;">
+        <div class="card-body">
+          <div class="row">
+    
+            <div style="padding: 30px;" class="text-center col-lg-6 col-md-6">
+              <i>{{merchant.name.charAt(0)}}</i><br> 
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                  <button class="btn btn-outline-primary" style="padding:15%; margin-top: 100px; margin-right: 50px;"><b>View Orders</b></button> 
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <button class="btn btn-outline-primary" style="padding: 15%; margin-top: 100px; margin-right: 50px;"><b>Back</b></button> 
+                </div>
+              </div>
+            </div>
+
+            <div class="card col-lg-6 col-md-6 text-left font-weight-bold" style="background-color:maroon ; margin-top: 2%;" >
+              <h5 class="card-header text-center text-white"  style="width: 100%; padding: 20px; font-size: xx-large; background-color:indigo;">Details</h5>
+              <ul class="list-group list-group-flush">
+              <li class="list-group-item" style="padding: 15px; font-size:larger ; background-color: gold;">Merchant Id: <span class="colour">{{merchant.userId}}</span></li>
+              <li class="list-group-item" style="padding: 15px; font-size:larger; background-color: rgb(248, 216, 37);">UserName: <span class="colour">{{merchant.username}}</span></li>
+              <li class="list-group-item" style="padding: 15px; font-size:larger; background-color: rgb(250, 223, 70);">Email: <span class="colour">{{merchant.eMail}}</span></li>
+              <li class="list-group-item" style="padding: 15px; font-size:larger; background-color: rgb(248, 228, 113);">Quantity Available: <span class="colour">{{merchant.phoneNumber}}</span></li>
+              <li class="list-group-item" style="padding: 15px; font-size:larger; background-color: rgb(248, 235, 161);">Admin Approval: <span class="colour">{{merchant.isApproved}}</span></li>
+              <li class="list-group-item" style="padding: 15px; font-size:larger; background-color: rgb(255, 247, 204);">Your Rating: <span class="colour">{{merchant.rating}}</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </body>
+  
+  
